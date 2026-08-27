@@ -1,4 +1,4 @@
-<script>
+
   document.addEventListener("DOMContentLoaded", () => {
   // Toggle buttons
   document.querySelectorAll('.toggle').forEach(button => {
@@ -42,4 +42,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-    </script>
+    
