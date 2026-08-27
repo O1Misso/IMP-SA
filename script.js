@@ -31,14 +31,15 @@
     });
   }
 
-  // Mission Statement toggle
+// Mission Statement toggle
 document.addEventListener("DOMContentLoaded", () => {
-  const missionBtn = document.getElementById("missionBtn");
-  const missionBox = document.getElementById("missionStatement");
+    const missionBtn = document.getElementById("missionBtn");
+    const missionBox = document.getElementById("missionStatement"); // ✅ match the HTML ID
 
-  missionBtn.addEventListener("click", () => {
-    missionBox.style.display =
-      missionBox.style.display === "block" ? "none" : "block";
-  });
+    missionBtn.addEventListener("click", () => {
+        missionBox.style.display =
+        missionBox.style.display === "block" ? "none" : "block";
+    });
+});
 
     </script>
