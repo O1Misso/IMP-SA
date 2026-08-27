@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMP SA</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+
+    header {
+      background: linear-gradient(90deg, #000, #444);
+      color: silver;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 3px solid #888;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 15px 0 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #eee;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: silver;
+    }
+
+    main {
+      padding: 40px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    section {
+      margin-bottom: 60px;
+    }
+
+    h2 {
+      border-bottom: 2px solid silver;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .division {
+      background: #222;
+      padding: 20px;
+      margin: 15px 0;
+      border-left: 5px solid silver;
+      transition: transform 0.3s;
+    }
+
+    .division:hover {
+      transform: translateX(10px);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      background: #222;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    input, textarea, select, button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    input, textarea, select {
+      background: #333;
+      color: #eee;
+    }
+
+    button {
+      background: silver;
+      color: #111;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #7b7979;
+    }
+
+    footer {
+      background: #000;
+      color: #8d8888;
+      text-align: center;
+      padding: 20px;
+      border-top: 3px solid #444;
+    }
+  
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+@keyframes drift {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100px); }
+}
+
+/* Division cards with glass effect */
+.division {
+  background: rgba(34, 34, 34, 0.8); /* semi-transparent overlay */
+  backdrop-filter: blur(6px);        /* glass blur effect */
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.division:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(26, 26, 26, 0.7);
+}
+
+.division img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+/* Animated gradient background */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  color: #ada9a9;
+  background: linear-gradient(-45deg, #000, #333, #555, rgb(141, 136, 136));
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+  position: relative;
+  overflow-x: hidden; /* prevent horizontal scroll */
+}
+
+/* Gradient animation */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Big slow bubbles */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(rgba(192,192,192,0.6) 8px, transparent 8px);
+  background-size: 120px 120px;
+  animation: bubbleDrift 30s linear infinite, twinkle 8s ease-in-out infinite alternate;
+  opacity: 0.25;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Small fast bubbles */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: radial-gradient(rgba(192,192,192,0.4) 4px, transparent 4px);
+  background-size: 70px 70px;
+  animation: bubbleDriftFast 18s linear infinite, twinkle 5s ease-in-out infinite alternate;
+  opacity: 0.2;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Bubble drift animations */
+@keyframes bubbleDrift {
+  from { transform: translate(0,0); }
+  to { transform: translate(-200px,-200px); }
+}
+
+@keyframes bubbleDriftFast {
+  from { transform: translate(0,0); }
+  to { transform: translate(200px,-200px); }
+}
+
+/* Twinkle shimmer */
+@keyframes twinkle {
+  from { opacity: 0.15; }
+  to { opacity: 0.35; }
+}
+body::before,
+body::after {
+  filter: brightness(1.3) contrast(1.2);
+}
+
+/* Side Button */
+.side-button {
+  position: absolute;
+  right: -120px; /* sits on the side */
+  top: 50px;
+  transform: rotate(-90deg);
+  background: silver;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.side-button:hover {
+  background: #888;
+}
+/* Side Button */
+.side-button {
+  position: absolute;
+  right: -120px; /* sits on the side */
+  top: 50px;
+  transform: rotate(-90deg);
+  background: silver;
+  color: #111;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px 5px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.side-button:hover {
+  background: #888;
+}
+
+/* Mission Statement Box */
+.mission-box {
+  display: none;
+  margin-top: 20px;
+  background: rgba(34,34,34,0.85);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+#about {
+  position: relative; /* allows the side button to anchor correctly */
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>IMP SA</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#divisions">Divisions</a></li>
+        <li><a href="#jobs">Job Guarantee</a></li>
+        <li><a href="#registration">Join Us</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    
+      
+    
+    <section id="about">
+  <h2> About us</h2>
+  <p><em>To Empower South Africans Through Integrated Innovation.</em></p>
+ 
+  <!-- Mission Statement Button -->
+  <button id="missionBtn" class="side-button">Mission Statement</button>
+
+  <!-- Hidden Mission Statement -->
+  <div id="missionStatement" class="mission-box">
+    <h3>Our Mission Statement</h3>
+    <p><em>We Don't Just Build Businesses. We Build South Africa.</em></p>
+    <p>IMP SA is an integrated innovation ecosystem — logistics, IT, construction, tourism, housing, healthcare, and education — all connected to create one thing: sustainable jobs for South Africans.</p> 
+    <p>We empower South Africans through integrated innovation, creating sustainable growth and opportunities. Our vision is to unite industries under one brand that drives progress and prosperity.</p>
+  <p>At IMP SA, we asked a simple question: What if one group could solve many of SA's biggest problems at once?</p>
+  <p>Our answer is an integrated model. Our 7 divisions work as one: Education trains you. Logistics, IT, Construction, Tourism, Property, and Healthcare hire you.</p>
+  <p>We are powered by technology South Africa can trust — GPS and AI for logistics, BIM for sustainable building, EHR & telemedicine for healthcare, and Blockchain, Digital Identity, and AI-Monitoring to kill corruption before it starts.</p>
+  <p>This is not just growth. This is sustainable growth with integrity.</p>
+
+    <p>Learn once. Earn for life. With our Job Guarantee for IMP graduates.</p>
+  </div>
+</section>
+
+
+
+  
+<section id="divisions">
+  <h2>Our Divisions</h2>
+
+  <!-- Logistics -->
+  <div class="division">
+    <img src="https://static.vecteezy.com/system/resources/thumbnails/073/288/829/small/logistic-truck-transport-cargo-on-highway-passing-factory-photo.jpg" alt="Logistics Division">
+    <h3>Logistics Division</h3>
+    <button class="toggle">More Info</button>
+    <div class="more-info">
+      <p><strong>Management:</strong> Experienced logistics professionals.</p>
+      <p>Transportation, supply chain management, and warehousing.</p>
+      <p><strong>Technology:</strong> GPS tracking, automated inventory management, digital logistics platforms.</p>
+    </div>
+  </div>
+
+  <!-- IT -->
+  <div class="division">
+    <img src="https://globalfocusmagazine.com/wp-content/uploads/2020/02/Engaging_with_technology-1536x1024.jpg" alt="IT Division">
+    <h3>IT Division</h3>
+    <button class="toggle">More Info</button>
+    <div class="more-info">
+      <p><strong>Management:</strong> Skilled IT professionals and developers.</p>
+      <p>Software development, cybersecurity, and IT consulting.</p>
+      <p><strong>Technology:</strong> Agile development, cloud computing, AI-powered solutions.</p>
+    </div>
+  </div>
+
+  <!-- Construction -->
+  <div class="division">
+    <img src="https://media.istockphoto.com/id/1420678520/photo/building-site-at-sunset.jpg?s=612x612&w=0&k=20&c=HoDUK1RxsH78Fj9D34nao_MUTbf-vR3G97zUWMtES4k=" alt="Construction Division">
+    <h3>Construction Division</h3>
+    <button class="toggle">More Info</button>
+    <div class="more-info">
+      <p><strong>Management:</strong> Experienced construction professionals.</p>
+      <p>Building, infrastructure development, and project management.</p>
+      <p><strong>Technology:</strong> BIM, project management software, sustainable building practices.</p>
+    </div>
+  </div>
+
+  <!-- Tourism -->
+  <div class="division">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG6aJQVFNHXX_cI-L8MeUzDrFAVnKExieoNB8PwORWd1OyzjmqG4BvdOJW&s=10" alt="Tourism Division">
+    <h3>Tourism Division</h3>
+    <button class="toggle">More Info</button>
+    <div class="more-info">
+      <p><strong>Management:</strong> Seasoned tourism professionals.</p>
+      <p>Hospitality, travel services, and tourism marketing.</p>
+      <p><strong>Technology:</strong> Online booking systems, CRM software, digital marketing tools.</p>
+    </div>
+  </div>
+
+  <!-- Property -->
+  <div class="division">
+    <img src="https://img.magnific.com/premium-photo/miniature-house-table-with-keys-symbolizing-real-estate-purchase-property-investment_937679-14497.jpg?semt=ais_hybrid&w=740&q=80" alt="Property Division">
+    <h3>Property Investment & Management Division</h3>
+    <button class="toggle">More Info</button>
+    <div class="more-info">
+      <p><strong>Management:</strong> Experienced real estate professionals.</p>
+      <p><strong>Technology:</strong> Property management software, online payment systems, smart home solutions.</p>
+    </div>
+  </div>
+
+  <!-- Healthcare -->
+  <div class="division">
+    <img src="https://t4.ftcdn.net/jpg/01/51/71/87/360_F_151718711_DqFYAW8pKmX3ayEYyzX2bhha9K0zmt3p.jpg" alt="Healthcare Division">
+    <h3>Healthcare Services Division</h3>
+    <button class="toggle">More Info</button>
+    <div class="more-info">
+      <p><strong>Management:</strong> Qualified healthcare professionals.</p>
+      <p>Medical services, health education, and wellness programs.</p>
+      <p><strong>Technology:</strong> EHRs, telemedicine platforms, medical billing software.</p>
+    </div>
+  </div>
+
+  <!-- Education -->
+  <div class="division">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQdLdtJucl6SgktjrMIPDJIO9kMsuWMor0zY4DQ5sdP0Q&s" alt="Education Division">
+    <h3>Education Division</h3>
+    <button class="toggle">More Info</button>
+    <div class="more-info">
+      <p><strong>Management:</strong> Experienced educators and administrators.</p>
+      <p>Schools, universities, and vocational training.</p>
+      <p><strong>Technology:</strong> LMS, online course platforms, digital assessment tools.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<style>
+ .more-info {
+  max-height: 0;
+  overflow: hidden;
+  background: #333;
+  padding: 0 15px;
+  border-radius: 8px;
+  transition: max-height 0.5s ease-out, padding 0.3s ease-out;
+}
+
+.more-info.show {
+  max-height: 500px; /* enough space for content */
+  padding: 15px;
+}
+
+
+
+.division {
+  background: #222;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.division:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.7);
+}
+.division img {
+  width: 100%;
+  max-height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 15px;
+
+</style>
+
+    <section id="jobs">
+      <h2>Job Guarantee Program</h2>
+      <p>Graduates from IMP SA education institutions are guaranteed placement in job roles within IMP SA or its partners, ensuring career growth and stability.</p>
+    </section>
+
+    <section id="registration">
+  <h2>Join Us</h2>
+  <form action="https://formspree.io/f/xppzaqqv" method="POST">
+    <label for="regName">Full Name:</label>
+    <input type="text" name="regName" id="regName" required>
+
+    <label for="regEmail">Email:</label>
+    <input type="email" name="regEmail" id="regEmail" required>
+
+    <label for="regPassword">Password:</label>
+    <input type="password" name="regPassword" id="regPassword" required>
+
+    <label for="regRole">Select Role:</label>
+    <select name="regRole" id="regRole" required>
+      <option value="">Select...</option>
+      <option value="Logistics">Logistics</option>
+      <option value="IT">IT</option>
+      <option value="Construction">Construction</option>
+      <option value="Tourism">Tourism</option>
+      <option value="Healthcare">Healthcare</option>
+      <option value="Education">Education</option>
+    </select>
+
+    <button type="submit">Register</button>
+  </form>
+</section>
+
+
+    
+  <h2>Contact Us</h2>
+  <p><strong>Phone:</strong> 082 8808198</p>
+  <p><strong>Email:</strong> Improve#southafroica@gmail.com</p>
+
+  
+    
+<input type="hidden" name="_redirect" value="https://yourwebsite.com/thank-you.html">
+<div data-fs-success></div>
+<div data-fs-error></div>
+
+<form id="contact-form">
+    <form action="https://formspree.io/f/xppzaqqv" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" required data-fs-field>
+  <span data-fs-error="name"></span>
+
+  <label for="email">Email:</label>
+  <input type="email" id="email" name="email" required data-fs-field>
+  <span data-fs-error="email"></span>
+
+  <label for="message">Message:</label>
+  <textarea id="message" name="message" required data-fs-field></textarea>
+  <span data-fs-error="message"></span>
+
+  <button type="submit" data-fs-submit-btn>Send</button>
+</form>
+
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { formElement: '#contact-form', formId: 'xppzaqqv' });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+
+  <footer>
+    <p>&copy; 2026 IMP SA. All rights reserved.</p>
+  </footer>
+
+  
+    
+ <script>
+  document.querySelectorAll('.toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const info = button.nextElementSibling;
+      info.classList.toggle('show');
+    });
+  });
+
+
+
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Thank you for your message! We will get back to you soon.');
+      this.reset();
+    });
+
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const name = document.getElementById('regName').value;
+      const email = document.getElementById('regEmail').value;
+      const role = document.getElementById('regRole').value;
+      alert(`Registration successful!\nName: ${name}\nEmail: ${email}\nRole: ${role}`);
+      this.reset();
+    });
+
+  
+  const missionBtn = document.getElementById('missionBtn');
+  const missionBox = document.getElementById('missionStatement');
+
+  missionBtn.addEventListener('click', () => {
+    missionBox.style.display = (missionBox.style.display === 'block') ? 'none' : 'block';
+  });
+</script>
+
+</body>
+</html> 
