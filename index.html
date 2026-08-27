@@ -481,7 +481,7 @@ body::after {
     
   <h2>Contact Us</h2>
   <p><strong>Phone:</strong> 082 8808198</p>
-  <p><strong>Email:</strong> Improve#southafroica@gmail.com</p>
+  <p><strong>Email:</strong> improvesouthafroica26@gmail.com</p>
 
   
     
@@ -543,15 +543,16 @@ body::after {
       alert(`Registration successful!\nName: ${name}\nEmail: ${email}\nRole: ${role}`);
       this.reset();
     });
+document.addEventListener("DOMContentLoaded", () => {
+  const missionBtn = document.getElementById("missionBtn");
+  const missionBox = document.getElementById("missionStatement");
 
-  document.addEventListener("DOMContentLoaded", () => {
-  const missionBtn = document.getElementById('missionBtn');
-  const missionBox = document.getElementById('missionStatement');
+  missionBtn.addEventListener("click", () => {
+    missionBox.style.display =
+      missionBox.style.display === "block" ? "none" : "block";
+  });
+});
 
-  missionBtn.addEventListener('click', () => {
-    missionBox.style.display = (missionBox.style.display === 'block') ? 'none' : 'block';
-  });
-  });
 </script>
   <script src="js/script.js"></script>
 
