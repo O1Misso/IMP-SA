@@ -1,4 +1,5 @@
-document.addEventListener("DOMContentLoaded", () => {
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
   // Toggle buttons
   document.querySelectorAll('.toggle').forEach(button => {
     button.addEventListener('click', () => {
@@ -31,11 +32,13 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Mission Statement toggle
-  const missionBtn = document.getElementById('missionBtn');
-  const missionBox = document.getElementById('missionStatement');
-  if (missionBtn && missionBox) {
-    missionBtn.addEventListener('click', () => {
-      missionBox.style.display = missionBox.style.display === 'block' ? 'none' : 'block';
-    });
-  }
+document.addEventListener("DOMContentLoaded", () => {
+  const missionBtn = document.getElementById("missionBtn");
+  const missionBox = document.getElementById("missionStatement");
+
+  missionBtn.addEventListener("click", () => {
+    missionBox.style.display =
+      missionBox.style.display === "block" ? "none" : "block";
+  });
 });
+    </sript>
