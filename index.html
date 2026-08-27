@@ -296,12 +296,10 @@ body::after {
     <section id="about">
   <h2> About us</h2>
   <p><em>To Empower South Africans Through Integrated Innovation.</em></p>
- 
-  <!-- Mission Statement Button -->
-  <button id="missionBtn" class="side-button">Mission Statement</button>
+ <button id="missionBtn">Mission Statement</button>
 
-  <!-- Hidden Mission Statement -->
-  <div id="missionStatement" style="display:none;">
+<div id="missionStatement" style="display:none;">
+ 
     <h3>Our Mission Statement</h3>
     <p><em>We Don't Just Build Businesses. We Build South Africa.</em></p>
     <p>IMP SA is an integrated innovation ecosystem — logistics, IT, construction, tourism, housing, healthcare, and education — all connected to create one thing: sustainable jobs for South Africans.</p> 
@@ -543,15 +541,9 @@ body::after {
       alert(`Registration successful!\nName: ${name}\nEmail: ${email}\nRole: ${role}`);
       this.reset();
     });
-document.addEventListener("DOMContentLoaded", () => {
-  const missionBtn = document.getElementById("missionBtn");
-  const missionBox = document.getElementById("missionStatement");
 
-  missionBtn.addEventListener("click", () => {
-    missionBox.style.display =
-      missionBox.style.display === "block" ? "none" : "block";
-  });
-});
+
+
 <script src="js/script.js"></script>
 </script>
   
