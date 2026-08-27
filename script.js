@@ -40,5 +40,5 @@ document.addEventListener("DOMContentLoaded", () => {
     missionBox.style.display =
       missionBox.style.display === "block" ? "none" : "block";
   });
-});
-    </sript>
+
+    </script>
